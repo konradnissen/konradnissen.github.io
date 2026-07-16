@@ -1,20 +1,17 @@
 # ============================================================
 #  GRUNDEINSTELLUNGEN – hier trägst du deine Angaben ein
 # ============================================================
-title: "Dr. [Vorname] [Nachname]"
-tagline: "[Fachgebiet], [Institution]"
-description: >-
-  Persönliche Wissenschaftsseite von Dr. [Vorname] [Nachname] –
-  Forschung, Publikationen, Lebenslauf und Blog.
-email: "name@universitaet.de"
+title: "Konrad Nissen"
+tagline: "MIDEM, Dresden University of Technology"
+description: >
+email: "konrad [punkt] nissen [at] tu-dresden [punkt] de"
 author: "[Vorname] [Nachname]"
 
 # Wird für Links auf der Startseite benutzt (leer lassen = kein Link/Button anzeigen)
-orcid: ""            # z. B. "0000-0000-0000-0000"
-google_scholar: ""   # z. B. "https://scholar.google.com/citations?user=xxxx"
-github_username: ""  # z. B. "deinname"
-twitter_username: "" # ohne @, leer lassen falls nicht gewünscht
-linkedin: ""         # vollständige URL
+orcid: "0009-0008-6314-3697"            # z. B. "0000-0000-0000-0000"
+# google_scholar: ""   # z. B. "https://scholar.google.com/citations?user=xxxx"
+github_username: "konradnissen"  # z. B. "deinname"
+linkedin: "https://www.linkedin.com/in/konrad-nissen-2286b3166/"         # vollständige URL
 
 # ============================================================
 #  TECHNIK – normalerweise nicht verändern
