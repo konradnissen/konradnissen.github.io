@@ -40,7 +40,7 @@ title: Start
        Zeile unten von "hero-portrait-placeholder" auf ein echtes
        <img>-Tag umstellen (Beispiel als Kommentar darunter). -->
   <div class="hero-portrait-placeholder">
-    Porträtfoto hier einfügen<br>(/assets/img/portrait.jpg)
+    A professional but not too serious photo will be inserted here somewhere in the future <br>(/assets/img/Missing :(.jpg)
   </div>
   <!--
   <img class="hero-portrait" src="{{ '/assets/img/portrait.jpg' | relative_url }}" alt="Porträt von [Name]">
