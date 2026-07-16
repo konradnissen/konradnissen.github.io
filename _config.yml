@@ -1,0 +1,51 @@
+# ============================================================
+#  GRUNDEINSTELLUNGEN – hier trägst du deine Angaben ein
+# ============================================================
+title: "Dr. [Vorname] [Nachname]"
+tagline: "[Fachgebiet], [Institution]"
+description: >-
+  Persönliche Wissenschaftsseite von Dr. [Vorname] [Nachname] –
+  Forschung, Publikationen, Lebenslauf und Blog.
+email: "name@universitaet.de"
+author: "[Vorname] [Nachname]"
+
+# Wird für Links auf der Startseite benutzt (leer lassen = kein Link/Button anzeigen)
+orcid: ""            # z. B. "0000-0000-0000-0000"
+google_scholar: ""   # z. B. "https://scholar.google.com/citations?user=xxxx"
+github_username: ""  # z. B. "deinname"
+twitter_username: "" # ohne @, leer lassen falls nicht gewünscht
+linkedin: ""         # vollständige URL
+
+# ============================================================
+#  TECHNIK – normalerweise nicht verändern
+# ============================================================
+url: ""                     # wird von GitHub Pages automatisch gesetzt
+baseurl: ""                 # nur nötig falls Repo NICHT "username.github.io" heißt,
+                             # dann hier "/repo-name" eintragen
+
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+feed:
+  path: blog/feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules

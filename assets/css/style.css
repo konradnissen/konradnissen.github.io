@@ -1,0 +1,405 @@
+/* ============================================================
+   DESIGN TOKENS – Karteikarten-Archiv
+   ============================================================ */
+:root {
+  --paper:      #EFEDE1;   /* Hintergrund: gealtertes Papier */
+  --paper-alt:  #E4E0CE;   /* Karten / abgesetzte Flächen */
+  --ink:        #1E2622;   /* Haupttext: tiefes Tannen-Schwarz */
+  --ink-soft:   #4B564E;   /* gedämpfter Text */
+  --ochre:      #A9761F;   /* Akzent 1: Bibliotheks-Stempel */
+  --teal:       #33635B;   /* Akzent 2: Karteikarten-Reiter */
+  --rule:       #C6C0A8;   /* Trennlinien */
+  --rule-strong:#9C9678;
+
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body:    "Source Serif 4", Georgia, serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  --measure: 42rem;
+}
+
+@font-face { font-display: swap; }
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ochre); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--ochre);
+  outline-offset: 3px;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ============================================================
+   KOPFBEREICH + REGISTER-NAVIGATION (Signature Element)
+   ============================================================ */
+.site-header {
+  padding: 3rem 1.5rem 0;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.site-header .byline {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.4rem;
+}
+
+.site-header h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+  margin: 0 0 0.3rem;
+  letter-spacing: -0.01em;
+}
+
+.site-header .tagline {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 1.75rem;
+  font-size: 1.05rem;
+}
+
+/* Register-Reiter Navigation: wie Karteikarten eines Katalogkastens */
+nav.card-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  border-bottom: 3px solid var(--ink);
+  padding: 0 0.25rem;
+}
+
+nav.card-tabs a {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: var(--ink-soft);
+  background: var(--paper-alt);
+  border: 1px solid var(--rule-strong);
+  border-bottom: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 7px 7px 0 0;
+  position: relative;
+  top: 3px;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+nav.card-tabs a:nth-child(1) { --tilt: -0.6deg; }
+nav.card-tabs a:nth-child(2) { --tilt: 0.4deg; }
+nav.card-tabs a:nth-child(3) { --tilt: -0.3deg; }
+nav.card-tabs a:nth-child(4) { --tilt: 0.5deg; }
+
+nav.card-tabs a:hover { transform: rotate(0) translateY(-2px); color: var(--ink); }
+
+nav.card-tabs a.active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  transform: rotate(0);
+  font-weight: 600;
+}
+
+/* ============================================================
+   INHALT
+   ============================================================ */
+main {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2.75rem 1.5rem 5rem;
+}
+
+.prose { max-width: var(--measure); }
+
+.prose h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+.prose p { margin: 1rem 0; }
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.2rem;
+  border-left: 3px solid var(--ochre);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  background: var(--paper-alt);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+
+.prose pre {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.prose pre code { background: none; color: inherit; padding: 0; }
+
+/* ============================================================
+   STARTSEITE
+   ============================================================ */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 200px;
+  gap: 2.5rem;
+  align-items: start;
+  padding-top: 1rem;
+}
+
+.hero-portrait {
+  width: 200px;
+  height: 240px;
+  object-fit: cover;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper-alt);
+  filter: grayscale(15%) sepia(8%);
+}
+
+.hero-portrait-placeholder {
+  width: 200px;
+  height: 240px;
+  border: 1px dashed var(--rule-strong);
+  background: var(--paper-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  text-align: center;
+  padding: 1rem;
+}
+
+.stamp-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stamp-links a {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-decoration: none;
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+}
+.stamp-links a:hover { background: var(--teal); color: var(--paper); }
+
+.field-note {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  border-top: 1px dotted var(--rule-strong);
+  margin-top: 3rem;
+  padding-top: 1rem;
+}
+
+/* Neueste Blogbeiträge auf der Startseite */
+.recent-posts { margin-top: 3rem; }
+.recent-posts h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.recent-posts ul { list-style: none; padding: 0; margin: 0; }
+.recent-posts li {
+  display: flex;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px dotted var(--rule);
+  align-items: baseline;
+}
+.recent-posts time {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ochre);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   PUBLIKATIONEN – Bibliografie-Stil mit Karteikarten-Nummern
+   ============================================================ */
+.pub-list { list-style: none; padding: 0; margin: 2rem 0; }
+
+.pub-entry {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pub-index {
+  font-family: var(--font-mono);
+  color: var(--teal);
+  font-size: 0.95rem;
+  padding-top: 0.15rem;
+}
+
+.pub-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.08rem;
+  margin: 0 0 0.25rem;
+}
+
+.pub-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.3rem;
+}
+
+.pub-meta .year { color: var(--ochre); font-weight: 600; }
+
+.pub-tags span {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--paper-alt);
+  border: 1px solid var(--rule-strong);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.2rem 0.3rem 0 0;
+}
+
+.pub-year-group h2 {
+  font-family: var(--font-mono);
+  color: var(--ochre);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  margin-top: 2.5rem;
+  border-bottom: none;
+}
+
+/* ============================================================
+   LEBENSLAUF – Ledger-Zeitleiste
+   ============================================================ */
+.cv-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-top: 2.75rem;
+  color: var(--teal);
+}
+
+.cv-row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 1.25rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.cv-row .cv-date {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--ochre);
+  padding-top: 0.15rem;
+}
+
+.cv-row .cv-title { font-weight: 600; margin: 0 0 0.15rem; }
+.cv-row .cv-place { color: var(--ink-soft); font-size: 0.92rem; margin: 0; }
+
+.download-cv {
+  display: inline-block;
+  margin: 1.5rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border: 1px solid var(--ink);
+  padding: 0.6rem 1.1rem;
+  text-decoration: none;
+  color: var(--ink);
+  border-radius: 4px;
+}
+.download-cv:hover { background: var(--ink); color: var(--paper); }
+
+/* ============================================================
+   BLOG
+   ============================================================ */
+.blog-list { list-style: none; padding: 0; margin: 2rem 0; }
+.blog-entry {
+  padding: 1.3rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.blog-entry time {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ochre);
+}
+.blog-entry h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 0.25rem 0 0.4rem;
+}
+.blog-entry h2 a { color: var(--ink); text-decoration: none; }
+.blog-entry h2 a:hover { color: var(--ochre); }
+.blog-entry p { color: var(--ink-soft); margin: 0; }
+
+.post-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+/* ============================================================
+   FUSSZEILE
+   ============================================================ */
+.site-footer {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  border-top: 1px dotted var(--rule-strong);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-portrait, .hero-portrait-placeholder { width: 140px; height: 170px; }
+  .cv-row, .pub-entry { grid-template-columns: 1fr; }
+  .cv-row .cv-date, .pub-index { color: var(--ochre); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
