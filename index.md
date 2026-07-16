@@ -31,6 +31,7 @@ title: Start
       {% if site.google_scholar and site.google_scholar != "" %}<li><a href="{{ site.google_scholar }}">Google Scholar</a></li>{% endif %}
       {% if site.github_username and site.github_username != "" %}<li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>{% endif %}
       {% if site.linkedin and site.linkedin != "" %}<li><a href="{{ site.linkedin }}">LinkedIn</a></li>{% endif %}
+      {% if site.bluesky and site.bluesky != "" %}<li><a href="{{ site.bluesky }}">Bluesky</a></li>{% endif %}
       <li><a href="mailto:{{ site.email }}">E-Mail</a></li>
     </ul>
   </div>
