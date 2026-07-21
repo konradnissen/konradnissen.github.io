@@ -81,4 +81,4 @@ permalink: /lebenslauf/
 
 <!-- Lege eine PDF-Version deines Lebenslaufs unter /assets/cv.pdf ab,
      dann funktioniert dieser Button automatisch. -->
-<a class="download-cv" href="{{ '/assets/cv.pdf' | relative_url }}">Lebenslauf als PDF herunterladen</a>
+<a class="download-cv" href="{{ '/assets/CV_NissenK_Eng.pdf' | relative_url }}">CV as PDF</a>
