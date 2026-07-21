@@ -12,7 +12,7 @@ title: Start
       During my studies, I excessively focused on cultural sociology and sociology of culture, especially in research on culture and cognition (schemas, frames, internalization, and all sorts of this blabla), concepts and categories (the Hannan et al. stuff), taste (Bourdieu and the confusion since then) and cultural object (it's not just socially charged?!). As a political sociologist, I am currently seek to combine my knowledge with Cleavage and polariaztion research to answer questions like "Is there more in-group bias (vis a vis affective polarization) between less ambiguous social groups?", "How aligned are cleavages?" or "Are values important in political sociology or is it just garbage?" Prior to joining MIDEM, I had the rare experience to see what's life outside academia and worked at company to analyze large-scale text data. So I am planning to hop on the CSS bandwagon somewhere in the future.  </strong>.
     </p>
     <p>
-      Here you can find my CV <a href="{{ '/publikationen/' | relative_url }}">CV</a>,
+      Here you can find my <a href="{{ '/publikationen/' | relative_url }}">CV</a>,
       I don't really have much to offer, yet.g.
     </p>
 
@@ -47,7 +47,7 @@ title: Start
     </li>
     {% endfor %}
   </ul>
-  <p><a href="{{ '/blog/' | relative_url }}">Alle Beiträge ansehen &rarr;</a></p>
+  <p><a href="{{ '/blog/' | relative_url }}">See contributions &rarr;</a></p>
 </section>
 
 <p class="field-note">Zuletzt aktualisiert: {{ site.time | date: "%B %Y" }}</p>
